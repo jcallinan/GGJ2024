@@ -53,8 +53,38 @@ public class GameManager : MonoBehaviour
 
         int randomIndex = Random.Range(0, characterPrefabs.Length);
         GameObject randomCharacter = characterPrefabs[randomIndex];
-        GameManager.Instance.currentCharacter = randomCharacter;
-        Instantiate(randomCharacter, Vector3.zero, Quaternion.identity); // Spawns at position (0,0,0)
+        GameObject spawnedCharacter = Instantiate(randomCharacter, Vector3.zero, Quaternion.identity); // Spawns at position (0,0,0)
+        GameManager.Instance.currentCharacter = spawnedCharacter;
+
+        // Start the rotation coroutine
+        StartCoroutine(RotateCharacter(spawnedCharacter));
+    }
+    IEnumerator RotateCharacter(GameObject character)
+    {
+        float targetRotation = 112f;
+        float currentRotation = 0f;
+        float rotationSpeed = 65f; // Degrees per second
+
+        while (currentRotation < targetRotation)
+        {
+            // Calculate how much to rotate in this frame
+            float rotationThisFrame = rotationSpeed * Time.deltaTime;
+
+            // Check if this rotation would overshoot, and adjust if necessary
+            if (currentRotation + rotationThisFrame > targetRotation)
+            {
+                rotationThisFrame = targetRotation - currentRotation;
+            }
+
+            // Apply the rotation
+            character.transform.Rotate(0, rotationThisFrame, 0, Space.World);
+
+            // Update the current rotation
+            currentRotation += rotationThisFrame;
+
+            // Wait until the next frame
+            yield return null;
+        }
     }
     // Function to check for the next quest step or reset
     public void CheckForNextQuestStepOrReset(int currentStep, string userChoice)
