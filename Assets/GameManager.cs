@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
         int randomIndex = Random.Range(0, characterPrefabs.Length);
         GameObject randomCharacter = characterPrefabs[randomIndex];
-
+        GameManager.Instance.currentCharacter = randomCharacter;
         Instantiate(randomCharacter, Vector3.zero, Quaternion.identity); // Spawns at position (0,0,0)
     }
     // Function to check for the next quest step or reset
