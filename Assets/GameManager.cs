@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
             ProcessQuestStep(CurrentStepInQuest);
         }
     }
+    // Function to check if something is funny - as in two GameObjects have the same tag
+    public bool IsThisFunny(GameObject obj1, GameObject obj2)
+    {
+        return obj1.tag == obj2.tag;
+    }
     // Function to spawn a random character
     public void SpawnRandomCharacter()
     {

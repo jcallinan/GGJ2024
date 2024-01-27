@@ -680,6 +680,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 564615e1c1e021d40a793f810477c35a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentStepInQuest: 0
+  questSteps:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  characterPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentCharacter: {fileID: 0}
 --- !u!1 &1485184520
 GameObject:
   m_ObjectHideFlags: 0
