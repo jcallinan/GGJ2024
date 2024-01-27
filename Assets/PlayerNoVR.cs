@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float maxLookUpAngle = 80f; // Maximum angle to look up
     public float maxLookDownAngle = 80f; // Maximum angle to look down
     public float pickupRange = 2f;
+    public LayerMask pickupLayer; // Layer mask to filter pickupable objects
 
     private CharacterController characterController;
     private GameObject heldItem;
@@ -28,19 +29,22 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
         LookWithMouse();
 
-        if (Input.GetMouseButtonDown(0) && !isHolding)
+     /*   if (Input.GetKeyDown(KeyCode.E))
         {
-            TryPickUp();
-        }
-        else if (Input.GetMouseButtonDown(0) && isHolding)
-        {
-            DropItem();
+            if (!isHolding)
+            {
+                TryPickUp();
+            }
+            else
+            {
+                DropItem();
+            }
         }
 
         if (isHolding)
         {
             MoveItem();
-        }
+        } */
     }
 
     void MovePlayer()
@@ -76,10 +80,11 @@ public class PlayerController : MonoBehaviour
         Camera.main.transform.localRotation = Quaternion.Euler(currentRotationX, 0, 0);
     }
 
-    void TryPickUp()
+    /* void TryPickUp()
     {
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, pickupRange))
+
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, pickupRange, pickupLayer))
         {
             if (hit.collider.CompareTag("Pickupable"))
             {
@@ -91,6 +96,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
 
     void MoveItem()
     {
@@ -114,4 +120,9 @@ public class PlayerController : MonoBehaviour
         // Release the reference to the held item
         heldItem = null;
     }
+
+    void DrawLaser()
+    {
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * pickupRange, Color.red);
+    } */
 }
