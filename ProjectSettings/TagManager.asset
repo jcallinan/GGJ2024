@@ -9,6 +9,7 @@ TagManager:
   - FreeSpoon
   - MustardApplicator
   - SpoonTeleport
+  - Pickupable
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - pickupLayer
   - 
   - 
   - 
