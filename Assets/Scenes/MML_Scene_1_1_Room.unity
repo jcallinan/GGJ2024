@@ -933,6 +933,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5364136066476148413, guid: 41864a5b1f7ab1a45b6a889ff0474c5c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1472880754}
+    - targetCorrespondingSourceObject: {fileID: 5364136066476148413, guid: 41864a5b1f7ab1a45b6a889ff0474c5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1472880755}
   m_SourcePrefab: {fileID: 100100000, guid: 41864a5b1f7ab1a45b6a889ff0474c5c, type: 3}
 --- !u!1 &417744141
 GameObject:
@@ -1202,15 +1205,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7345961676312153524, guid: 4416b98c4484848b393bc467ca0845bb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7345961676312153524, guid: 4416b98c4484848b393bc467ca0845bb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7345961676312153524, guid: 4416b98c4484848b393bc467ca0845bb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7345961676312153524, guid: 4416b98c4484848b393bc467ca0845bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1262,11 +1265,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7978629859881015054, guid: 4416b98c4484848b393bc467ca0845bb, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7978629859881015054, guid: 4416b98c4484848b393bc467ca0845bb, type: 3}
       propertyPath: m_TagString
-      value: Pickupable
+      value: PickableObject
       objectReference: {fileID: 0}
     - target: {fileID: 8482870634922637019, guid: 4416b98c4484848b393bc467ca0845bb, type: 3}
       propertyPath: m_Enabled
@@ -1987,10 +1990,10 @@ MonoBehaviour:
   turnSpeed: 3
   maxLookUpAngle: 90
   maxLookDownAngle: 90
-  pickupRange: 10
+  pickupRange: 0.5
   pickupLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!143 &1472880754
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2017,6 +2020,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1472880755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472880746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67157f11475729a409ebb554f4fbf619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpKey: 112
+  holdingDistance: 0.5
 --- !u!1 &1487861840
 GameObject:
   m_ObjectHideFlags: 0
