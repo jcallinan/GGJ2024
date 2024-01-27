@@ -51,6 +51,27 @@ public class GameManager : MonoBehaviour
 
         Instantiate(randomCharacter, Vector3.zero, Quaternion.identity); // Spawns at position (0,0,0)
     }
+    // Function to check for the next quest step or reset
+    public void CheckForNextQuestStepOrReset(int currentStep, string userChoice)
+    {
+        if (questSteps[currentStep+1] == userChoice)
+        {
+            // Valid choice, move to the next step
+            CurrentStepInQuest++;
+            ProcessQuestStep(CurrentStepInQuest);
+        }
+        else
+        {
+            // Invalid choice, reset the game
+            Debug.Log("Invalid choice. Resetting the game.");
+            ResetGame();
+        }
+    }
+    private void ResetGame()
+    {
+        CurrentStepInQuest = 0;
+        SceneManager.LoadScene(questSteps[0]);
+    }
     private void ProcessQuestStep(int stepIndex)
     {
         // Check if the step index is within bounds of the array
