@@ -6,11 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Start_Screen.unity
+    guid: f6b436a4c846b7c41a8fd3ad8590f758
+  - enabled: 1
     path: Assets/Scenes/MML_Scene_1_1_Room.unity
     guid: 5d2bed7d3afad6b4ca2e40858af2151f
   - enabled: 1
+    path: Assets/Scenes/Start_MML.unity
+    guid: 948426bcfc7ee5f4a8adbbeb33068345
+  - enabled: 1
+    path: Assets/Scenes/Start_Quest.unity
+    guid: 095086b797812ab429262024fe985b6e
+  - enabled: 1
     path: Assets/Scenes/MML_Scene_1_1_Room_V2.unity
     guid: 9712549835aaa494e82f2de14f3e9d55
+  - enabled: 1
+    path: Assets/Scenes/MML_Scene_1.unity
+    guid: 6c997396d57b76f4698387d6a815afe1
   - enabled: 1
     path: Assets/Scenes/MML_Scene_1_1_Room_V3.unity
     guid: 8181c9f30d2e1a245bdc6f99c1a7c619
