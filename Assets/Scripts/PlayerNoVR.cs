@@ -8,14 +8,15 @@ public class PlayerController : MonoBehaviour
     public float turnSpeed = 3f; // Adjust this to set the turn speed
     public float maxLookUpAngle = 80f; // Maximum angle to look up
     public float maxLookDownAngle = 80f; // Maximum angle to look down
-    public float pickupRange = 2f;
-    public LayerMask pickupLayer; // Layer mask to filter pickupable objects
+    public float gravity = 9.8f; // Adjust this value as needed
+    public float groundRaycastDistance = 0.2f; // Adjust this based on your ground height
 
     private CharacterController characterController;
     private GameObject heldItem;
     private bool isHolding = false;
 
     private float currentRotationX = 0;
+    private Vector3 velocity;
 
     void Start()
     {
@@ -28,23 +29,6 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
         LookWithMouse();
-
-     /*   if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (!isHolding)
-            {
-                TryPickUp();
-            }
-            else
-            {
-                DropItem();
-            }
-        }
-
-        if (isHolding)
-        {
-            MoveItem();
-        } */
     }
 
     void MovePlayer()
@@ -61,7 +45,20 @@ public class PlayerController : MonoBehaviour
         right.Normalize();
 
         Vector3 moveDirection = forward * verticalInput + right * horizontalInput;
-        characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
+
+        // Apply gravity
+        if (!IsGrounded())
+        {
+            velocity.y -= gravity * Time.deltaTime;
+        }
+        else
+        {
+            // Reset velocity when grounded to prevent accumulating gravity over time
+            velocity.y = -2f;
+        }
+
+        // Move the player using the CharacterController
+        characterController.Move((moveDirection * moveSpeed + velocity) * Time.deltaTime);
     }
 
     void LookWithMouse()
@@ -80,49 +77,15 @@ public class PlayerController : MonoBehaviour
         Camera.main.transform.localRotation = Quaternion.Euler(currentRotationX, 0, 0);
     }
 
-    /* void TryPickUp()
+    bool IsGrounded()
     {
+        // Raycast to check if the player is grounded
         RaycastHit hit;
-
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, pickupRange, pickupLayer))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, groundRaycastDistance))
         {
-            if (hit.collider.CompareTag("Pickupable"))
-            {
-                heldItem = hit.collider.gameObject;
-                isHolding = true;
-
-                // Disable Rigidbody gravity while holding the item
-                heldItem.GetComponent<Rigidbody>().useGravity = false;
-            }
+            return true;
         }
+
+        return false;
     }
-
-
-    void MoveItem()
-    {
-        // Get the position in the middle of the camera's view
-        Vector3 middleOfScreen = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, pickupRange));
-
-        // Move the held item to the middle of the screen
-        heldItem.transform.position = middleOfScreen;
-
-        // Rotate the held item based on player's rotation (optional)
-        heldItem.transform.rotation = transform.rotation;
-    }
-
-    void DropItem()
-    {
-        isHolding = false;
-
-        // Enable Rigidbody gravity when dropping the item
-        heldItem.GetComponent<Rigidbody>().useGravity = true;
-
-        // Release the reference to the held item
-        heldItem = null;
-    }
-
-    void DrawLaser()
-    {
-        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * pickupRange, Color.red);
-    } */
 }
