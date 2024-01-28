@@ -26,6 +26,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MML_Scene_1_1_Room_V3.unity
     guid: 8181c9f30d2e1a245bdc6f99c1a7c619
+  - enabled: 1
+    path: Assets/Scenes/LoadScene.unity
+    guid: ccd100a9a9243ac4ab4c66bbfead91e4
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Scene_1.unity
+    guid: 14d84bd9e1eaddc429d2eef12114190f
   m_configObjects:
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 0ec8e8b1a1f2afb4c812742e58eebbff, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 3e5c7fd631f94e54e90a4e89b7c173b3, type: 2}
