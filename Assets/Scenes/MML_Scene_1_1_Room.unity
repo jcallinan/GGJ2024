@@ -936,6 +936,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5364136066476148413, guid: 41864a5b1f7ab1a45b6a889ff0474c5c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1472880755}
+    - targetCorrespondingSourceObject: {fileID: 5364136066476148413, guid: 41864a5b1f7ab1a45b6a889ff0474c5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1472880756}
   m_SourcePrefab: {fileID: 100100000, guid: 41864a5b1f7ab1a45b6a889ff0474c5c, type: 3}
 --- !u!1 &417744141
 GameObject:
@@ -2034,6 +2037,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickUpKey: 112
   holdingDistance: 2
+--- !u!114 &1472880756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472880746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d1508e270d401d429825944f9fabe39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1487861840
 GameObject:
   m_ObjectHideFlags: 0
